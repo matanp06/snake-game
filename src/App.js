@@ -1,10 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
 import Board from './Board';
+import GameOver from './GameOver';
 import Snake from './snake';
 
 // create a new snake for the game
-const snake = new Snake([0,0]);
+let snake = new Snake([0,0]);
 
 // diractions "ENUM"
 const directions ={
@@ -14,6 +15,9 @@ const directions ={
   left:[-1,0]
 }
 
+let direction = directions.right; // initiating the diraction of the snake 
+let nextDirection = direction;
+let gameIsOver = false;
 
 function App() {
 
@@ -21,8 +25,8 @@ function App() {
   // creatinig the snake hook
   const [snakeLinks,setSnakeLinks] = useState(snake.getSnake());
   const [gameIsActive, setGameIsActive] = useState(false);
-  let direction = directions.right; // initiating the diraction of the snake 
-  let nextDirection = direction;
+  // const [gameIsOver, setGameIsOver] = useState(false);
+  const [showGameOver,setShowGameOver] = useState(false);
   const [gameInterval, setGameInterval] = useState(null)
   // setting the apple position hook;
   const [apple,setApple] = useState(getRandomFreeLocation())
@@ -55,30 +59,31 @@ function App() {
   useEffect(()=>{
     document.addEventListener("keydown",(e)=>{
       const key = e.key;
-      if(key=="Enter")
+      if(key=="Enter" && !gameIsOver)
         setGameIsActive(true);
       else if(gameIsActive){
-        if(key == "w"){
+        if(key == "w" || key == "ArrowUp"){
           nextDirection = directions.up;
         }
-        else if(key == "s"){
+        else if(key == "s" || key == "ArrowDown"){
           nextDirection = directions.down;
         }
-        else if(key == "d"){
+        else if(key == "d" || key == "ArrowRight"){
           nextDirection = directions.right;
         }
-        else if(key == "a"){
+        else if(key == "a"|| key == "ArrowLeft"){
           nextDirection = directions.left;
         } 
       }
     })
   },[gameIsActive]);
 
-  //
+  // stops the game when q is pressed
   useEffect(()=>{
     document.addEventListener("keydown",(e)=>{
       const key = e.key;
       if(gameIsActive&&key == "q"){
+        setGameIsActive(false);
         clearInterval(gameInterval);
       }
     })
@@ -122,7 +127,8 @@ function App() {
         // checking if the snake bite itself
         if(snake.isBitten()){
           setGameIsActive(false);
-          alert("gameOver");
+          gameIsOver = true;
+          setShowGameOver(true);
         }
       }
       
@@ -130,7 +136,8 @@ function App() {
     } 
     else{
       setGameIsActive(false);
-      alert("gameOver");
+      gameIsOver = true;
+      setShowGameOver(true);
     }
   }
 
@@ -163,10 +170,34 @@ function App() {
     return (x==appleX && y==appleY);
   }
 
+  function restartGame(){
+
+    snake = new Snake([0,0]);
+    direction = directions.right;
+    nextDirection = direction;
+    varApple = getRandomFreeLocation();
+    setApple(varApple);
+    // setGameIsActive(true);
+    gameIsOver = false;
+    setSnakeLinks(snake.getSnake());
+    setShowGameOver(false);
+
+  }
+
+  function quitPlaying(){
+
+    setShowGameOver(false);
+
+  }
+
   return (
     <div className="App">
       <h1>SNAKE</h1>
       <Board snake={snakeLinks} apple={apple}/>
+      {showGameOver && <GameOver 
+                        restartFunction={restartGame}
+                        quitFunction={quitPlaying}
+                        />}
     </div>
   );
 }
