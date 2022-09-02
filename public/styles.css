@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+}
+
+.Board{
+    display: flex;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.Cell{
+    width: 40px;
+    height: 40px;
+    background-color:green;
+    box-sizing: border-box;
+    border: 1px solid white;
+}
