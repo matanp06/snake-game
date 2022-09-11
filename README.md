@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# My Snake Game!
+In this project i decided to build the well known snake game using react.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## The Game's goal
+Eat all the apples that spawns in the board.
 
-## Available Scripts
+## The Game's Rules
+1) Don't cross the boarders of the screen - if the snake crosses it the game is over.
+2) Don't bite yourself - if the snake's head bites his own body the game is over.
 
-In the project directory, you can run:
 
-### `npm start`
+## How To Play
+To start the play just press enter on your keyboard.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+There are two defined ways to control the snake movment:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* the "W S A D" keys:
+  * W - go up.
+  * S - go down.
+  * A - go left.
+  * D - go right.
+* the keyboard arrows.
 
-### `npm test`
+_important! the snake can't turn to the opposite direction, for example if the snake aheaded up, you can't make him go down._
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Restarting the game
+If you failed to collect all the apples and striked out, there will be a pop up at the end of the game which allows you to restart a new game.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## To Do Next
+- [ ] Add support for mobile devices
+- [ ] Add a local leader board 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Gallery
+Starting a new game:
+![snake game start](https://user-images.githubusercontent.com/64268905/189549098-6f4dd00a-dc2f-455b-af0c-3c3e1a245bf2.png)
 
-### `npm run eject`
+In game photo: 
+![snake mid game](https://user-images.githubusercontent.com/64268905/189549158-bbb3292b-7b7f-4482-9d89-0c0dcabdb19d.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Game Over photo:
+![snake game over](https://user-images.githubusercontent.com/64268905/189549183-b0a4f8c9-55fe-4880-b6b9-71bf437ffab7.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
