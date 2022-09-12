@@ -1,5 +1,5 @@
 # My Snake Game!
-In this project i decided to build the well known snake game using react.
+In this project I decided to build the well known snake game using react.
 
 ## The Game's goal
 Eat all the apples that spawns in the board.
@@ -21,7 +21,7 @@ There are two defined ways to control the snake movment:
   * D - go right.
 * the keyboard arrows.
 
-_important! the snake can't turn to the opposite direction, for example if the snake aheaded up, you can't make him go down._
+_important! the snake can't turn to the opposite direction, for example if the snake is going up, you can't make him go down._
 
 ### Restarting the game
 If you failed to collect all the apples and striked out, there will be a pop up at the end of the game which allows you to restart a new game.
