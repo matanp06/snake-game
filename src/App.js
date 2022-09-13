@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Board from './Board';
 import GameOver from './GameOver';
 import Snake from './snake';
+import SwipeControl from './SwipeControl';
+
+
 
 // create a new snake for the game
 let snake = new Snake([0,0]);
@@ -54,7 +57,11 @@ function App() {
     return([indexedLocation%10,Math.floor(indexedLocation/10)]);
 
   }
-  
+
+  useEffect(()=>{
+    
+  },[])
+
   // tracing the user keys presses dutring the game.
   useEffect(()=>{
     document.addEventListener("keydown",(e)=>{
@@ -191,15 +198,27 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{height:window.innerHeight+"px"}}>
       <h1>SNAKE</h1>
       <Board snake={snakeLinks} apple={apple}/>
       {showGameOver && <GameOver 
                         restartFunction={restartGame}
                         quitFunction={quitPlaying}
                         />}
+      {/* start button */}
+      {!gameIsActive && 
+        <button 
+          className="startGameButton"
+          onClick={()=>setGameIsActive(true)}
+          >start</button>}
+          
+      {/* controls for touch screens */}
+      <SwipeControl
+        gameIsActive = {gameIsActive} 
+        setDirection={(direction => nextDirection = direction)}/>
     </div>
   );
 }
 
 export default App;
+export {directions}
